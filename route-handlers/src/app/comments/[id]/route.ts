@@ -24,7 +24,7 @@ export async function PATCH(
 }
 
 export async function DELETE(
-  request: Request,
+  _request: Request,
   { params }: { params: { id: string } }
 ) {
   const index = comments.findIndex(
