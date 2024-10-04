@@ -5,7 +5,15 @@ type Product = {
   description: string;
 };
 export default async function ProductsPage() {
-  const response = await fetch('http://localhost:3001/products');
+  //   const response = await fetch('http://localhost:3001/products', {
+  //     cache: 'no-store',
+  //   });
+
+  const response = await fetch('http://localhost:3001/products', {
+    next: {
+      revalidate: 10,
+    },
+  });
   const products = await response.json();
 
   return (
